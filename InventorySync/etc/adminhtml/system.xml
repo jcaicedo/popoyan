@@ -9,6 +9,12 @@
             <tab>general</tab>
             <resource>Magento_Config::config_inventor_sync</resource>
             <group id="general" translate="label" sortOrder="10" showInDefault="1" showInStore="1" showInWebsite="1">
+                <label>Inventory Sync Options</label>
+                <field id="enable_sync" translate="label" type="select" showInDefault="1" showInStore="1"
+                       showInWebsite="1">
+                    <label>Enable Inventory Sync</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
                 <field id="api_url" translate="label" type="text" sortOrder="10" showInWebsite="1" showInStore="1"
                        showInDefault="1">
                     <label>API URL</label>

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="inventory_sync" translate="label" sortOrder="980" showInWebsite="1" showInStore="1"
+                 showInDefault="1">
+            <class>separator-top</class>
+            <label>Inventory Sync</label>
+            <tab>general</tab>
+            <resource>Magento_Config::config_inventor_sync</resource>
+            <group id="general" translate="label" sortOrder="10" showInDefault="1" showInStore="1" showInWebsite="1">
+                <field id="api_url" translate="label" type="text" sortOrder="10" showInWebsite="1" showInStore="1"
+                       showInDefault="1">
+                    <label>API URL</label>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

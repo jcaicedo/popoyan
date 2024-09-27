@@ -4,7 +4,7 @@
     <group id="default">
         <job name="popoyan_inventorysync_syncproducts" instance="Popoyan\InventorySync\Cron\SyncProducts"
              method="execute">
-            <schedule>* * * * *</schedule>
+            <schedule>0 0 * * *</schedule>
         </job>
     </group>
 

@@ -4,33 +4,44 @@ namespace Popoyan\AsyncCatalog\Controller\Category;
 
 use Magento\Framework\App\Action\Action;
 use Magento\Framework\App\Action\Context;
+use Magento\Framework\App\ResponseInterface;
+use Magento\Framework\Controller\Result\Json;
 use Magento\Framework\Controller\Result\JsonFactory;
 use Magento\Catalog\Api\CategoryRepositoryInterface;
 use Magento\Catalog\Model\ResourceModel\Product\CollectionFactory as ProductCollectionFactory;
 use Magento\Catalog\Helper\Image as ImageHelper;
+use Magento\Framework\Controller\ResultInterface;
+use Magento\Framework\Exception\NoSuchEntityException;
+
 
 class AjaxProducts extends Action
 {
-    protected $resultJsonFactory;
-    protected $categoryRepository;
-    protected $productCollectionFactory;
-    protected $imageHelper;
 
+    /**
+     * @param Context $context
+     * @param JsonFactory $resultJsonFactory
+     * @param CategoryRepositoryInterface $categoryRepository
+     * @param ProductCollectionFactory $productCollectionFactory
+     * @param ImageHelper $imageHelper
+     * @return void
+     */
     public function __construct(
-        Context                     $context,
-        JsonFactory                 $resultJsonFactory,
-        CategoryRepositoryInterface $categoryRepository,
-        ProductCollectionFactory    $productCollectionFactory,
-        ImageHelper                 $imageHelper
+        private Context                     $context,
+        private JsonFactory                 $resultJsonFactory,
+        private CategoryRepositoryInterface $categoryRepository,
+        private ProductCollectionFactory    $productCollectionFactory,
+        private ImageHelper                 $imageHelper
     )
     {
-        $this->resultJsonFactory = $resultJsonFactory;
-        $this->categoryRepository = $categoryRepository;
-        $this->productCollectionFactory = $productCollectionFactory;
-        $this->imageHelper = $imageHelper;
+
         parent::__construct($context);
     }
 
+
+    /**
+     * @return ResponseInterface|Json|ResultInterface
+     * @throws NoSuchEntityException
+     */
     public function execute()
     {
         $result = $this->resultJsonFactory->create();
@@ -39,7 +50,7 @@ class AjaxProducts extends Action
 
 
         $productCollection = $this->productCollectionFactory->create()
-            ->addAttributeToSelect(['name', 'price', 'image']) // Asegurarse de seleccionar los atributos
+            ->addAttributeToSelect(['name', 'price', 'image'])
             ->addCategoryFilter($category);
 
         $products = [];

@@ -1,0 +1,17 @@
+<?php
+/** @var Magento\Framework\View\Element\Template $block */
+$categoryId = $block->getCurrentCategory() ? $block->getCurrentCategory()->getId() : '';
+?>
+
+<div id="category-products-wrapper">
+    <div id="category-products"></div>
+    <script type="text/x-magento-init">
+        {
+            "*": {
+                "Popoyan_AsyncCatalog/js/ajaxProducts": {
+                    "category_id": "<?= $categoryId ?>"
+            }
+        }
+    }
+    </script>
+</div>

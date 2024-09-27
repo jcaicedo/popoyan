@@ -1,0 +1,20 @@
+type Query {
+    customProduct(skus: [String!], pageSize: Int, currentPage: Int): CustomProductInfoOutput @resolver(class: "Popoyan\\CustomGraphQL\\Model\\Resolver\\CustomProductInfo")
+}
+
+type CustomProductInfoOutput {
+    items: [ProductInfo]
+    total_count: Int
+    page_info: PageInfo
+}
+
+type ProductInfo {
+    name: String
+    price: Float
+    qty: Float
+}
+
+type PageInfo {
+    page_size: Int
+    current_page: Int
+}

@@ -7,7 +7,7 @@ autenticación y soporta paginación para manejar catálogos grandes de producto
 ## Requisitos
 
 - Magento 2.4.x
-- PHP 8.3
+- PHP 8.2 o superior
 - Composer
 
 ## Instalación
@@ -37,7 +37,7 @@ Ejecuta los siguientes comandos para generar el código necesario y desplegar el
 
 ```bash
 php bin/magento setup:di:compile
-php bin/magento setup:static-content:deploy
+
 ```
 
 ## Configuración

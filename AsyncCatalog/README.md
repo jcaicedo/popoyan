@@ -6,34 +6,28 @@ y la experiencia del usuario.
 ## Requisitos
 
 - Magento 2.3.0 o superior
-- PHP 7.4 o superior
+- PHP 8.2 o superior
 
 ## Instalación
 
-Sigue estos pasos para instalar el módulo `Vendor_AsyncCatalog`:
+Sigue estos pasos para instalar el módulo `Popoyan_AsyncCatalog`:
 
 1. **Clonar el repositorio en tu directorio de Magento:**
 
    ```sh
    cd /path/to/magento/app/code
-   mkdir -p Vendor/AsyncCatalog
-   cd Vendor/AsyncCatalog
+   mkdir -p Popoyan/AsyncCatalog
+   cd Popoyan/AsyncCatalog
    git clone <URL_DEL_REPOSITORIO> .
    ```
 
 2. **Habilitar el módulo:**
 
    ```sh
-   bin/magento module:enable Vendor_AsyncCatalog
+   bin/magento module:enable Popoyan_AsyncCatalog
    bin/magento setup:upgrade
    bin/magento cache:clean
    bin/magento cache:flush
-   ```
-
-3. **Desplegar el contenido estático:**
-
-   ```sh
-   bin/magento setup:static-content:deploy
    ```
 
 ## Configuración
